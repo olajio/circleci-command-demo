@@ -16,7 +16,14 @@ jobs:
     steps:
       - print_pipeline_id
 
+  fail-job: #This job is intended to fail in order to demonstrae when: fails
+    docker:
+      - image: circleci/node:13.8.0
+    steps:
+      - run: cat output.txt #Note that: output.txt does not exist so this will result in an error
+
 workflows:
   my_workflow:
     jobs:
       - my_job
+      - fail-job
