@@ -21,6 +21,10 @@ jobs:
       - image: circleci/node:13.8.0
     steps:
       - run: cat output.txt #Note that: output.txt does not exist so this will result in an error
+      - run:
+          name: Upload Failed Tests
+          command: echo "Error found in a previous step. See one of the previous steps for more informatio"
+          when: on_fail
 
 workflows:
   my_workflow:
