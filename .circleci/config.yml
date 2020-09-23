@@ -1,13 +1,13 @@
 version: 2.1
 commands: # a reusable command with parameters
   print_pipeline_id:
-  description: "A very simple command for printing print_pipeline_id"
-  parameters:
-    to:
-      type: string
-      default: $CIRCLE_WORKFLOW_ID
-  steps:
-    - run: echo << parameters.to >>
+    description: "A very simple command for printing print_pipeline_id"
+    parameters:
+      to:
+        type: string
+        default: $CIRCLE_WORKFLOW_ID
+    steps:
+      - run: echo << parameters.to >>
 
 jobs:
   my_job: #this job is calling the command created above
